@@ -43,5 +43,13 @@ RSpec.describe StringCalculator do
     it 'supports delimiters of any length' do
       expect(calculator.add("//[***]\n1***2***3")).to eq(6)
     end
+
+    it 'supports multiple delimiters' do
+      expect(calculator.add("//[*][%]\n1*2%3")).to eq(6)
+    end
+
+    it 'supports multiple delimiters with length longer than one char' do
+      expect(calculator.add("//[***][%%%]\n1***2%%%3")).to eq(6)
+    end    
   end
 end
